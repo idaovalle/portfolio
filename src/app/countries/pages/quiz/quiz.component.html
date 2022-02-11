@@ -1,0 +1,99 @@
+<div class="container-main">
+  <div class="container-quiz">
+    <div class="panel">
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]="stepQuiz === 0"
+          (opened)="setStepQuiz(0)"
+          [disabled]="stepQuiz === 1 || stepQuiz === 0"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon
+                [ngStyle]="{ display: stepQuiz === 1 ? 'none' : '' }"
+                (click)="settingsQuiz()"
+                class="icon-settings"
+                >settings
+              </mat-icon>
+              <span class="quiz-title"> World Capitals</span>
+            </mat-panel-title>
+            <mat-panel-description>
+              <ng-container *ngIf="!reviewTime; else reviewTimeTitle">
+                <div class="panel-description">
+                  <mat-icon>schedule</mat-icon>
+                  <span class="panel-description-right active"
+                    >{{ quizTimer }} sec</span
+                  >
+                </div>
+              </ng-container>
+              <!-- Quiz Time Review -->
+              <ng-template #reviewTimeTitle>
+                <div class="panel-description">
+                  <button (click)="resetAll()" mat-button>
+                    <mat-icon class="active">restart_alt</mat-icon>Restart Quiz
+                  </button>
+                </div>
+              </ng-template>
+              <!--End Quiz Time Review -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Content intro -->
+          <div class="intro">
+            <app-intro-quiz
+              [numberQuestions]="numberQuestions"
+              [scoreForAnswerCorrect]="scoreForAnswerCorrect"
+              [dataQuizTimer]="dataQuizTimer"
+            ></app-intro-quiz>
+          </div>
+          <mat-action-row>
+            <button class="next" mat-button (click)="firstStepQuiz()">
+              Start
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <!--   End  Intro Quiz -->
+    <!--   Quiz -->
+    <!--  TimeQuiz -->
+    <div class="panel" *ngIf="!reviewTime">
+      <div *ngIf="loadingCountries$ | async" style="color: white">
+        <app-loader [title]="'Countries'"></app-loader>
+      </div>
+      <app-by-world
+        [quizTime]="quizTime"
+        [reviewTime]="reviewTime"
+        [dataQuizTimer]="dataQuizTimer"
+        (typeQuiz)="setTypeQuiz($event)"
+      ></app-by-world>
+    </div>
+    <!--  End TimeQuiz -->
+    <!--  Time Review Quiz -->
+    <div class="panel" *ngIf="reviewTime">
+      <app-results></app-results>
+    </div>
+    <!--  End Time Review Quiz -->
+    <div [hidden]="stepQuiz === 0" class="panel">
+      <mat-accordion>
+        <mat-expansion-panel disabled>
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              <div class="panel-description">
+                <button *ngIf="!reviewTime" (click)="endQuiz()" mat-button>
+                  <mat-icon class="active">arrow_forward</mat-icon> End Quiz
+                </button>
+                <div class="review-time-title" *ngIf="reviewTime">
+                  <mat-icon>schedule</mat-icon>
+                  <span class="panel-description-right active"
+                    >Review Time</span
+                  >
+                </div>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <!--  End  Quiz -->
+  </div>
+</div>

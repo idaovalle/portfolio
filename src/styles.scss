@@ -1,0 +1,64 @@
+@import "olamcode-variables";
+@import "countries-variables";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $bg-olamcode;
+}
+//Angular Material
+.mat-snack-bar-container {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+//autoComplete
+.mat-autocomplete-panel {
+  background-color: black;
+  opacity: 0.95;
+}
+//autocomplete
+.mat-option {
+  line-height: 1rem !important;
+  height: 4rem !important;
+}
+
+.mat-typography p {
+  margin: 20px;
+}
+.mat-toolbar {
+  button {
+    display: none;
+  }
+}
+.countries-dialog {
+  mat-dialog-container {
+    background-color: black;
+    /*     box-shadow: 0px 0px 25px -10px rgb(234 255 0 / 20%); */
+    box-shadow: 0px 0px 40px -5px rgb(234 255 0 / 20%);
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      background-color: black;
+      color: $countries-text;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mat-option {
+    line-height: 2rem !important;
+    height: 4rem !important;
+  }
+  .container-results {
+    .mat-tab-label-container {
+      overflow: visible;
+      overflow-y: auto;
+    }
+  }
+}

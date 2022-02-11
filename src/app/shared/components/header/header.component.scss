@@ -1,0 +1,42 @@
+@import "olamcode-variables";
+mat-sidenav-container {
+  z-index: 10;
+  mat-sidenav {
+    width: 200px;
+    position: fixed;
+    background-color: $bg-dark;
+    img {
+      margin-top: 1rem;
+    }
+    mat-icon {
+      margin: 1em 0 0.5em 1em;
+    }
+  }
+  mat-sidenav-content {
+    mat-toolbar {
+      background-color: $bg-dark;
+      height: $height-header;
+
+      .logo-header {
+        cursor: pointer;
+        margin-left: -1rem;
+      }
+      .spacer {
+        flex: 1 1 auto;
+      }
+      .code-hr {
+        margin-left: 50vh;
+      }
+
+      button {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .code-hr {
+    display: none;
+  }
+}

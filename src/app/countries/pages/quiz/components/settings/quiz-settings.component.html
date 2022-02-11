@@ -1,0 +1,28 @@
+<div class="quiz-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Quiz Timer: </mat-label>
+    <mat-select [(value)]="dataSettings.quizTimer">
+      <mat-option value="8">8 seconds</mat-option>
+      <mat-option value="30">30 seconds</mat-option>
+      <mat-option value="60">60 seconds</mat-option>
+      <mat-option value="90">90 seconds</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>№ Questions:</mat-label>
+    <mat-select [(value)]="dataSettings.numberQuestions">
+      <mat-option value="5">5 questions</mat-option>
+      <mat-option value="10">10 questions </mat-option>
+      <mat-option value="20">20 questions </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>№ Options:</mat-label>
+    <mat-select [(value)]="dataSettings.numberOptionsByQuestion">
+      <mat-option value="3">3 options</mat-option>
+      <mat-option value="6">6 options</mat-option>
+      <mat-option value="9">9 options</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button [mat-dialog-close]="dataSettings">Save</button>
+</div>

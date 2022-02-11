@@ -1,0 +1,23 @@
+@import "countries-variables";
+.countries-dialog {
+  mat-dialog-content {
+    font-size: 1.3rem;
+    color: $countries-text;
+    line-height: 1.5rem;
+    overflow: hidden;
+  }
+  mat-dialog-actions {
+    color: $countries-subtitle;
+    font-size: 1.3rem;
+    .space {
+      flex: auto 1 1;
+      height: 10px;
+    }
+    button {
+      &:hover {
+        border: 0.1rem solid ($countries-accent);
+        opacity: 0.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import "countries-variables";
+/* accordion */
+.container-main {
+  display: flex;
+
+  .container-quiz {
+    width: 100%;
+    .panel {
+      mat-accordion {
+        mat-expansion-panel {
+          background-color: black;
+          mat-expansion-panel-header {
+            font-size: 1rem;
+            background-color: $bg-dark;
+            mat-panel-title {
+              color: #eff3f8;
+              align-items: center;
+
+              .quiz-title {
+                margin-left: 0.5rem;
+              }
+              button {
+                line-height: 0rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: $countries-gray;
+                opacity: 0.6;
+              }
+              .btn-number {
+                span {
+                  position: absolute;
+                  margin-top: -0.7rem;
+                  margin-left: -0.2rem;
+                }
+              }
+              .active {
+                background-color: $countries-accent;
+                opacity: 1;
+              }
+              img {
+                opacity: 0.3rem;
+              }
+              .country-flag {
+                position: absolute;
+                margin-left: 2.5rem;
+                margin-top: 0.2rem;
+              }
+              .icon-settings {
+                font-size: 1.5rem;
+                cursor: pointer;
+              }
+            }
+            mat-panel-description {
+              justify-content: right;
+              .panel-description {
+                display: flex;
+                align-items: center;
+                button {
+                  background: none;
+                  color: $countries-text;
+                  &:hover {
+                    color: $countries-gray;
+                  }
+                }
+
+                mat-icon {
+                  margin-right: 0.5rem;
+                }
+                .panel-description-right {
+                  opacity: 0.3;
+                  margin-right: 0.3rem;
+                }
+                .active {
+                  color: $countries-accent;
+                  opacity: 1;
+                }
+                .review-time-title {
+                  font-size: 0.8rem;
+                  display: flex;
+                  align-items: center;
+                }
+              }
+            }
+          }
+          .intro {
+            margin-top: 1rem;
+          }
+
+          mat-action-row {
+            .next {
+              color: $countries-accent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.container-results {
+  width: 25%;
+}

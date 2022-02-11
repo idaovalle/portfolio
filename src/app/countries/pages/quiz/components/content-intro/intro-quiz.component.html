@@ -1,0 +1,64 @@
+<div class="quiz-intro">
+  <div class="quiz-card">
+    <div class="quiz-card-content">
+      <div class="icon-card tribune">
+        <img src="assets/countries/img/intro-quiz.png" />
+      </div>
+
+      <div class="intro">
+        <p class="title">Welcome!</p>
+        <p class="description">
+          This Quiz will contains total<br /><span>
+            {{ numberQuestions }}
+            questions,</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="quiz-card">
+    <div class="quiz-card-content">
+      <div class="icon-card">
+        <mat-icon>check</mat-icon>
+      </div>
+      <div class="description-card">
+        <p class="title">Correct question:</p>
+        <p class="description">
+          Hold:
+          <span class="active">
+            {{ scoreForAnswerCorrect }}
+            points</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="quiz-card">
+    <div class="quiz-card-content">
+      <div class="icon-card">
+        <mat-icon class="incorrect">close</mat-icon>
+      </div>
+      <div class="description-card">
+        <p class="title">Incorrect question:</p>
+        <p class="description">
+          Hold:
+          <span class="active"> - {{ scoreForAnswerCorrect }} points</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="quiz-card">
+    <div class="quiz-card-content">
+      <div class="icon-card">
+        <mat-icon>schedule</mat-icon>
+      </div>
+      <div class="description-card">
+        <p class="title">Quiz Timer:</p>
+        <p class="description">
+          Time:
+          <span class="active"> {{ dataQuizTimer }} sec</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

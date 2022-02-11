@@ -1,0 +1,7 @@
+/rickandmorty
+/rickandmorty/home
+/rickandmorty/list
+/rickandmorty/favorites
+/countries/home
+/countries/quiz
+/countries/quiz/byWorld

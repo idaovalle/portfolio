@@ -1,0 +1,14 @@
+<div class="container-map" #map>
+  <mat-slider
+    thumbLabel
+    vertical
+    tickInterval="1"
+    step="1"
+    min="0"
+    max="18"
+    aria-label="units"
+    [value]="zoomLevel | number: '1.0-0'"
+    (input)="zoomChange(zoomInput.value)"
+    #zoomInput
+  ></mat-slider>
+</div>

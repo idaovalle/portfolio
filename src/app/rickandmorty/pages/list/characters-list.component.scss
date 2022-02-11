@@ -1,0 +1,38 @@
+@import "characters-variables";
+.arrow {
+  position: fixed;
+  width: 167vh;
+  margin-top: 68vh;
+
+  button {
+    float: right;
+    border-radius: 255px 100px 225px 15px/15px 225px 15px 255px;
+    border-bottom-right-radius: 55pt 25pt;
+    background-color: transparent;
+    color: rgb(255, 238, 7);
+  }
+}
+.search {
+  margin-left: 3rem;
+}
+@media only screen and (max-width: 1024px) {
+  .arrow {
+    width: 53vh;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .arrow {
+    width: 70vh;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .arrow {
+    width: 50vh;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .arrow {
+    width: 43vh;
+  }
+}

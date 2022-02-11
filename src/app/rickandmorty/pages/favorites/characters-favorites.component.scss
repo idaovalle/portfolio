@@ -1,0 +1,35 @@
+@import "characters-variables";
+@import "olamcode-variables";
+.favorites {
+  min-height: calc(95vh - #{$height-header});
+}
+.no-favorites {
+  img {
+    margin-top: 10vh;
+    width: 220px;
+  }
+  .box-text {
+    background-color: $morty;
+    border: 5px solid black;
+    border-radius: 255px 100px 225px 15px/15px 225px 15px 255px;
+    border-bottom-right-radius: 55pt 25pt;
+    padding: 0.7em;
+
+    h1 {
+      font-family: "characters";
+      line-height: 1.5em;
+      color: black;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .box-text {
+    padding: 0.3em;
+    margin-right: 8em;
+  }
+}

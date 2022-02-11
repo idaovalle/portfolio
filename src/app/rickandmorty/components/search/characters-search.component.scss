@@ -1,0 +1,95 @@
+@import "characters-variables";
+.rick-search {
+  position: absolute;
+  height: 70px;
+  margin-top: -10px;
+  margin-left: -33px;
+}
+
+form {
+  width: 97%;
+  mat-form-field {
+    width: 98%;
+    justify-content: center;
+    align-items: center;
+    mat-label {
+      margin-left: 10px;
+      mat-icon {
+        margin-right: 0.2rem;
+      }
+    }
+  }
+  input {
+    font-size: 1.5rem;
+    font-family: $font-title;
+    padding: 0.1rem;
+    margin-left: 10px;
+  }
+}
+.img-char {
+  border-radius: 50%;
+  height: 50px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+.name-search {
+  font-size: 1.4rem;
+  font-family: $font-title;
+  margin-left: 10px;
+  color: $rick;
+}
+.char-text {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.highlight {
+  font-weight: bold;
+  color: $morty;
+}
+.male {
+  font-weight: bold;
+  color: $rick;
+}
+.female {
+  font-weight: bold;
+  color: pink;
+}
+.search-cleaner {
+  position: relative;
+  height: 4rem;
+
+  .button-cleaner {
+    height: 4.2rem;
+    width: 5rem;
+    border-radius: 255px 100px 225px 15px/15px 225px 15px 255px;
+    border-bottom-right-radius: 55pt 25pt;
+    float: right;
+    background-color: $morty;
+    margin-left: -100rem;
+    p {
+      margin-left: 1rem;
+      margin-top: 1.3rem;
+      color: rgb(0, 0, 0);
+      font-family: characters;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+}
+.warn {
+  color: $morty;
+  font-family: $font-title;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .char-text {
+    display: none;
+  }
+  .name-search {
+    font-size: 1rem;
+    font-family: $font-title;
+    margin-left: 10px;
+    color: $rick;
+  }
+}

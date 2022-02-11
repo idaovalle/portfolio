@@ -1,0 +1,88 @@
+<mat-card>
+  <!--  Header -->
+  <mat-card-header>
+    <mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <h2>{{ character.name | slice: 0:15 }}</h2>
+        <span class="spacer"></span>
+        <mat-icon *ngIf="character.favorite" color="warn" (click)="onFavorite()"
+          >favorite
+        </mat-icon>
+        <mat-icon *ngIf="!character.favorite" (click)="onFavorite()"
+          >favorite
+        </mat-icon>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <!-- End Header -->
+
+  <!--  Description-->
+  <div fxLayout="row">
+    <div>
+      <img
+        [src]="character.image"
+        [alt]="character.name"
+        rel="preload"
+        as="image"
+        width="180px"
+        height="180px"
+      />
+      <div fxLayout="row" class="status">
+        Status:
+        <div [ngSwitch]="character.status">
+          <p *ngSwitchCase="'Alive'" class="alive">
+            {{ character.status }}
+          </p>
+          <p *ngSwitchCase="'Dead'" class="dead">
+            {{ character.status }}
+          </p>
+          <p *ngSwitchCase="'unknown'" class="unknown">
+            {{ character.status }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" class="description">
+      <h3>Specie:</h3>
+      <p>{{ character.species | slice: 0:6 }}</p>
+      <h3>Gender:</h3>
+      <p *ngIf="character.gender !== 'unknown'">{{ character.gender }}</p>
+      <p *ngIf="character.gender === 'unknown'" style="font-size: 1em">
+        {{ character.gender }}
+      </p>
+    </div>
+  </div>
+  <!-- End of Description-->
+  <!-- Creation Date  -->
+  <mat-card-content>
+    <p>{{ character.created | date }}</p>
+  </mat-card-content>
+  <!-- End of Creation  -->
+</mat-card>
+<ng-template #addFavSnackBar>
+  <div class="snackbar" fxLayout="row" fxLayoutAlign="center center">
+    <h3>Favorite Added!</h3>
+    <div>
+      <img
+        alt="Favorite Added!"
+        rel="preload"
+        as="image"
+        src="assets/rickandmorty/img/add-fav.png"
+      />
+    </div>
+  </div>
+</ng-template>
+<ng-template #delFavSnackBar>
+  <div class="snackbar deleted" fxLayout="row" fxLayoutAlign="center center">
+    <h3>Favorite Removed!</h3>
+    <div>
+      <img
+        alt="Favorite Removed!"
+        rel="preload"
+        as="image"
+        src="assets/rickandmorty/img/del-fav.png"
+      />
+    </div>
+  </div>
+</ng-template>

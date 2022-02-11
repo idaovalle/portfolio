@@ -1,0 +1,225 @@
+@import "countries-variables";
+.container-results {
+  margin: 0.3rem;
+  color: $countries-text;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+
+  .data-results-quiz {
+    overflow-y: auto;
+
+    color: $countries-text;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    border: 1px solid #eaff0029;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    .card-result {
+      display: grid;
+      grid-auto-rows: 1fr;
+      align-items: center;
+
+      .card-result-content {
+        padding: 0.5rem;
+        display: flex;
+        font-size: 1.1rem;
+        .icon-card {
+          text-align: center;
+          mat-icon {
+            color: $countries-accent;
+            font-size: 2.5rem;
+            margin-right: 1.3rem;
+          }
+          .prize {
+            font-size: 3.5rem;
+            margin-left: 2rem;
+          }
+          .incorrect {
+            color: red;
+          }
+        }
+        .card-description {
+          margin: 0 2rem;
+          p {
+            color: $countries-text;
+            margin: 0;
+          }
+          .score {
+            font-size: 1.2rem;
+            color: $countries-subtitle;
+          }
+        }
+      }
+    }
+  }
+
+  .review {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: space-around;
+    .quiz-item {
+      font-size: 1rem;
+      margin: 0.5rem;
+      margin-right: 3rem;
+      text-align: center;
+      span {
+        margin: 0.5rem;
+      }
+      .answer {
+        padding: 0.2rem;
+        border: 0.1rem solid $countries-accent;
+        border-radius: 0.2rem;
+        margin: 0.5rem;
+      }
+      .spacer {
+        flex: auto 1 1;
+      }
+      .correct-answer {
+        padding: 0.2rem;
+        border: 0.1rem solid $bg-dark;
+        border-radius: 0.2rem;
+        margin: 0.5rem;
+        mat-icon {
+          color: $countries-accent;
+        }
+      }
+      .score {
+        color: $countries-subtitle;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 2rem;
+      }
+    }
+    .country-map {
+      margin: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      mat-icon {
+        color: $countries-accent;
+      }
+
+      .mapbox {
+        width: 450px;
+        height: 234px;
+        border: 1px solid #eaff00;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        margin-right: 1rem;
+      }
+    }
+    .country-information {
+      .country-title {
+        display: flex;
+        align-items: center;
+        padding-left: 1.1rem;
+        span {
+          font-size: 1.5rem;
+          margin-left: 1rem;
+          max-width: 370px;
+        }
+      }
+      .country-description {
+        display: flex;
+
+        .item-description {
+          p {
+            padding-left: 0.5rem;
+            line-height: 1.5rem;
+            max-width: 230px;
+            span {
+              color: $countries-subtitle;
+              margin-left: 0.2rem;
+            }
+          }
+          .green {
+            border-left: solid 0.3rem $countries-accent;
+            max-width: 150px;
+          }
+
+          .orange {
+            border-left: solid 0.3rem orange;
+          }
+          .blue {
+            border-left: solid 0.3rem #0406a7;
+          }
+          .purple {
+            border-left: solid 0.3rem #6323c9;
+          }
+          .red-pink {
+            border-left: solid 0.3rem #c92387;
+          }
+        }
+      }
+
+      margin: 0.5rem;
+    }
+  }
+}
+@media only screen and (max-width: 830px) {
+  .container-results {
+    .review {
+      margin-top: 2rem;
+      justify-content: space-between;
+      height: 54vh;
+    }
+    mat-tab-group {
+      margin-top: 2rem;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container-results {
+    .review {
+      flex-direction: column;
+      margin-top: 1rem;
+      height: 100%;
+      .quiz-item {
+        display: flex;
+        align-items: center;
+      }
+    }
+    mat-tab-group {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+@media only screen and(max-width: 414px) {
+  .container-results {
+    margin: 0.4rem;
+    .data-results-quiz {
+      padding: 0;
+      display: flex;
+      .card-result {
+        .card-result-content {
+          width: 100%;
+          .card-description {
+            margin: 0 1.5rem;
+            .score {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+    .review {
+      margin: 0px;
+      .quiz-item {
+        .score {
+          display: none;
+        }
+      }
+      .country-map {
+        .mapbox {
+          width: 320px;
+        }
+      }
+    }
+  }
+}

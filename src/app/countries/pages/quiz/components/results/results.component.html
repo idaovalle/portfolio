@@ -1,0 +1,158 @@
+<div class="container-results">
+  <div class="data-results-quiz">
+    <div class="card-result">
+      <div class="card-result-content">
+        <div class="icon-card">
+          <mat-icon class="prize">emoji_events</mat-icon>
+        </div>
+        <div class="card-description">
+          <p class="title">Score:</p>
+
+          <p class="score">{{ quizReport.scoreQuiz }} pts</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-result">
+      <div class="card-result-content">
+        <div class="icon-card">
+          <mat-icon class="incorrect">close</mat-icon>
+        </div>
+        <div class="card-description">
+          <p class="title"></p>
+          <p class="title">Answers:</p>
+          <p class="score">{{ quizReport.noIncorrectAnswer }} Incorrect</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-result">
+      <div class="card-result-content">
+        <div class="icon-card">
+          <mat-icon>check</mat-icon>
+        </div>
+        <div class="card-description">
+          <p class="title">Answers:</p>
+          <p class="score">{{ quizReport.noCorrectAnswer }} correct</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-result">
+      <div class="card-result-content">
+        <div class="icon-card">
+          <mat-icon>schedule</mat-icon>
+        </div>
+        <div class="card-description">
+          <p class="title">Timer:</p>
+          <p class="score">{{ quizReport.timer }} sec</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-tab-group>
+    <mat-tab *ngFor="let data of quizReview; let i = index">
+      <ng-template mat-tab-label>
+        <div
+          style="line-height: 3.5rem"
+          (click)="
+            onReview(
+              quizReview[i],
+              data.correctAnswer.latlng[0],
+              data.correctAnswer.latlng[1]
+            )
+          "
+          mat-button
+        >
+          {{ data.correctAnswer.name.common }}
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="review">
+    <div class="quiz-item">
+      <div class="correct-answer">
+        <mat-icon>check</mat-icon>
+        <span>{{ correctAnswer.capital[0] | slice: 0:17 }} </span>
+      </div>
+      <div class="answer">
+        <span *ngIf="!selectedAnswer.userAnswer"
+          >{{ selectedAnswer.capital[0] }}
+        </span>
+        <span *ngIf="selectedAnswer.userAnswer">no selected </span>
+      </div>
+    </div>
+    <div class="country-map">
+      <app-map
+        [arrLatLngItem]="arrLatLngItem"
+        [lngLat]="lngLat"
+        class="mapbox"
+      ></app-map>
+    </div>
+    <div class="country-information">
+      <div class="country-title">
+        <img width="40px" height="20px" [src]="correctAnswer.flags.png" />
+
+        <span>{{ correctAnswer.name.common }}</span>
+      </div>
+      <div class="country-description">
+        <div class="geo">
+          <div class="item-description">
+            <p class="green">
+              Capital: <br />
+              <span>{{ correctAnswer.capital[0] }}</span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="green">
+              Region: <br />
+              <span>{{ correctAnswer.region }}</span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="green">
+              Subregion: <br />
+              <span>{{ correctAnswer.subregion }}</span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="green">
+              Area: <br />
+              <span>{{ correctAnswer.area | number }} km<sup>2</sup> </span>
+            </p>
+          </div>
+        </div>
+        <div class="social">
+          <div class="item-description">
+            <p class="orange">
+              Population:<br />
+              <span>{{ correctAnswer.population | number }}</span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="red-pink">
+              Currencies:<br />
+              <span *ngFor="let item of correctAnswer.currencies | ObjToArray"
+                >{{ item.name }} ({{ item.symbol }})<br />
+              </span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="purple">
+              Calling Code:<br />
+              <span *ngFor="let item of correctAnswer.idd | ObjToArray">{{
+                item
+              }}</span>
+            </p>
+          </div>
+          <div class="item-description">
+            <p class="blue">
+              Languages:<br />
+              <span *ngFor="let item of correctAnswer.languages | ObjToArray"
+                >&nbsp;{{ item }},
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

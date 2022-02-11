@@ -1,0 +1,78 @@
+<div fxLayout="row">
+  <img
+    rel="preload"
+    as="image"
+    class="rick-search"
+    alt="Character Search"
+    src="assets/rickandmorty/img/search.png"
+  />
+  <form fxLayout="row">
+    <mat-form-field appearance="fill">
+      <mat-label fxLayout="row">
+        <mat-icon aria-label="Search Character">search</mat-icon>
+        <span> Search Character...</span>
+      </mat-label>
+
+      <input
+        matInput
+        aria-label="Character"
+        [matAutocomplete]="auto"
+        [formControl]="searchCtrl"
+        (input)="searchCharacter()"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          fxLayout="row"
+          fxLayoutAlign="end center"
+          *ngFor="let character of charactersSearch"
+          [value]="character.name"
+        >
+          <div fxLayout="row" *ngIf="charactersSearch.length > 0">
+            <img
+              rel="preload"
+              as="image"
+              aria-hidden
+              class="img-char"
+              [src]="character.image"
+            />
+            <div>
+              <p>
+                <span class="name-search">{{ character.name }} </span><br />
+
+                <span class="char-text">
+                  It is a character of the
+                  <span class="highlight">{{ character.species }}</span>
+                  species, apparently is
+                  <span *ngIf="character.gender === 'Male'" class="male">{{
+                    character.gender
+                  }}</span>
+                  <span *ngIf="character.gender === 'Female'" class="female">{{
+                    character.gender
+                  }}</span>
+                  and the date of creation is
+                  <span class="highlight">{{
+                    character.created | date
+                  }}</span></span
+                >
+              </p>
+            </div>
+          </div>
+        </mat-option>
+        <ng-template></ng-template>
+        <mat-option *ngIf="charactersSearch.length === 0 && term.length > 0">
+          <span class="warn"> {{ term }} </span>
+          is not found
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div class="search-cleaner">
+    <div
+      class="button-cleaner"
+      aria-label="Clear Search"
+      (click)="onSearchCleaner()"
+    >
+      <p>Clear</p>
+    </div>
+  </div>
+</div>

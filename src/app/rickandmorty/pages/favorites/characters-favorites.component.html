@@ -1,0 +1,24 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  class="no-favorites"
+  *ngIf="!showFavorites"
+>
+  <img src="assets/rickandmorty/img/rick-afraid.png" />
+  <div class="box-text">
+    <h1>No favorites</h1>
+  </div>
+</div>
+
+<div
+  *ngIf="showFavorites"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign="space-evenly center"
+  class="favorites"
+>
+  <app-characters-card
+    *ngFor="let character of listFavorites$ | async"
+    [character]="character"
+  ></app-characters-card>
+</div>

@@ -1,0 +1,17 @@
+@import "countries-variables";
+mat-sidenav-container {
+  background: black;
+  mat-sidenav {
+    background: black;
+    border-right: none;
+    width: 100vh;
+  }
+}
+.content {
+  margin: 1.5rem 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .content {
+    margin: 1.5rem 0.2rem;
+  }
+}

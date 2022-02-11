@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+$morty: #fef86c;
+$rick: #97d7d7;
+$live: rgb(5, 189, 5);
+$title: rgb(0, 90, 0);
+$text: rgb(22, 22, 22);
+$font-title: "Special Elite", cursive;
+//Fonts
+@font-face {
+  font-family: "characters";
+  src: url("./../fonts/get-schwifty.ttf");
+  font-display: swap;
+}
+
+$width-sidenavar: 250px;
+$characters-bg-dark: black;
+$bg-vertical-menu: black;
+
+//Background Gradient
+$characters-colorbg1: rgb(168, 104, 25);
+$characters-colorbg2: rgb(106, 107, 25);
+$characters-colorbg3: rgb(81, 141, 136);
+$characters-colorbg4: rgb(32, 19, 19);
+$characters-colorbg5: rgb(91, 19, 19);
+$characters-colorbg6: rgb(16, 40, 59);

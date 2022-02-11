@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-countries-sidenav (toggle)="onToggle()"></app-countries-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header-countries (toggle)="onToggle()"></app-header-countries>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

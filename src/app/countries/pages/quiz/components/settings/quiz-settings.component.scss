@@ -1,0 +1,17 @@
+@import "countries-variables";
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  button {
+    background: #161515;
+    color: $countries-subtitle;
+  }
+}
+mat-option.mat-option {
+  color: $countries-subtitle;
+  background: black !important;
+  &:hover {
+    background: black;
+    border: 0.1rem solid $countries-accent;
+  }
+}

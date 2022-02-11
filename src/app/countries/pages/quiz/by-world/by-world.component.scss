@@ -1,0 +1,126 @@
+@import "countries-variables";
+/* accordion */
+.container-main {
+  display: flex;
+
+  .container-quiz {
+    width: 100%;
+    .panel {
+      color: rgb(199, 199, 199);
+      font-family: "countries";
+      mat-accordion {
+        mat-expansion-panel {
+          background-color: black;
+          mat-expansion-panel-header {
+            background-color: $bg-dark;
+            mat-panel-title {
+              .title-quiz {
+                margin-left: 0.5rem;
+                margin-top: 0.3rem;
+              }
+              button {
+                line-height: 0rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: $countries-gray;
+                opacity: 0.6;
+              }
+              .btn-number {
+                span {
+                  position: absolute;
+                  margin-top: -0.7rem;
+                  margin-left: -0.2rem;
+                }
+              }
+              .active {
+                background-color: $countries-accent;
+                opacity: 1;
+              }
+              img {
+                opacity: 0.3rem;
+              }
+              .country-flag {
+                position: absolute;
+                margin-left: 2.5rem;
+                margin-top: 0.2rem;
+              }
+              .icon-settings {
+                font-size: 1.3rem;
+                margin-top: 0.4rem;
+              }
+            }
+            mat-panel-description {
+              justify-content: right;
+              .panel-description {
+                display: flex;
+                align-items: center;
+
+                .total-time {
+                  margin-right: 0.5rem;
+                }
+                mat-icon {
+                  margin-right: 0.5rem;
+                }
+                .panel-description-right {
+                  opacity: 0.3;
+                  margin-right: 0.3rem;
+                }
+                .active {
+                  color: $countries-accent;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          .intro {
+            margin-top: 1rem;
+          }
+          .item-quiz {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1rem;
+            text-align: center;
+            align-items: center;
+            .question {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+            }
+            .options {
+              .options-group {
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                border: none;
+              }
+
+              mat-button-toggle {
+                background-color: black;
+                padding: 0.2rem;
+                margin: 0.5rem;
+                border: 0.1rem solid $bg-dark;
+                border-radius: 0.2rem;
+              }
+              .mat-button-toggle-checked {
+                border: 0.05rem solid $countries-accent;
+              }
+            }
+          }
+
+          .skip {
+            mat-icon {
+              color: $countries-accent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 415px) {
+  .options-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

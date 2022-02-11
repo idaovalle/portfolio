@@ -1,0 +1,87 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <div class="character1">
+    <img
+      alt="Rick and Morty"
+      rel="preload"
+      as="image"
+      src="assets/rickandmorty/img/character1.png"
+      height="6em"
+      width="90px"
+    />
+  </div>
+  <div class="icon-close">
+    <button mat-button (click)="onToggle()" aria-label="Close Menu">
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+  </div>
+  <img
+    alt="Rick and Morty"
+    rel="preload"
+    as="image"
+    class="img-avatar"
+    width="200px"
+    height="181px"
+    src="assets/rickandmorty/img/rmperfil.png"
+  />
+  <img
+    alt="Rick and Morty"
+    rel="preload"
+    as="image"
+    width="60%"
+    height="60%"
+    class="img-title"
+    src="assets/rickandmorty/img/Rick_and_Morty_title.svg"
+  />
+  <mat-divider color="warn"></mat-divider>
+  <mat-list>
+    <mat-list-item>
+      <button
+        mat-button
+        fxLayout="row"
+        [routerLink]="['/rickandmorty/home']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button
+        mat-button
+        fxLayout="row"
+        (click)="updateChars()"
+        [routerLink]="['/rickandmorty/list']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon>list_all</mat-icon>
+        <span>List</span>
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button
+        mat-button
+        fxLayout="row"
+        [routerLink]="['/rickandmorty/favorites']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon
+          matBadgeColor="warn"
+          matBadgePosition="before"
+          [matBadge]="numberFav"
+          >favorite</mat-icon
+        >
+        <span>Favorites</span>
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <img
+    alt="Rick and Morty"
+    rel="preload"
+    as="image"
+    class="character2"
+    width="49px"
+    height="93px"
+    src="assets/rickandmorty/img/character2.png"
+  />
+</div>

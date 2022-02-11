@@ -1,0 +1,72 @@
+<mat-sidenav-container class="mat-elevation-z12">
+  <!--  Sidenav -->
+  <mat-sidenav #sidenav>
+    <button (click)="sidenav.close()" aria-label="close menu" mat-icon-button>
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+      <img
+        alt="OlamCode"
+        rel="preload"
+        as="image"
+        width="150px"
+        height="163px"
+        src="assets/olamcode/img/logo-vertical.png"
+      />
+      <button
+        aria-label="Link for Rick and Morty App"
+        [routerLink]="['/rickandmorty']"
+        (click)="sidenav.close()"
+        routerLinkActive="router-link-active"
+        mat-button
+      >
+        Rick and Morty
+      </button>
+    </div>
+  </mat-sidenav>
+  <!-- End  Sidenav -->
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <!--   Version mobile -->
+      <button
+        (click)="sidenav.open()"
+        aria-label="Open Menu"
+        mat-icon-button
+        fxHide.gt-xs
+      >
+        <mat-icon color="primary">menu</mat-icon>
+      </button>
+
+      <!--  End  Version mobile -->
+
+      <img
+        class="logo-header"
+        alt="OlamCode"
+        rel="preload"
+        as="image"
+        width="170px"
+        height="68px"
+        src="assets/olamcode/img/logo-new.png"
+      />
+
+      <span class="spacer"></span>
+      <button
+        mat-button
+        [routerLink]="['/countries']"
+        routerLinkActive="router-link-active"
+      >
+        Countries
+      </button>
+      <img
+        class="code-hr"
+        alt="HR signal"
+        rel="preload"
+        as="image"
+        width="54px"
+        height="54px"
+        src="assets/olamcode/img/qr-cv.png"
+      />
+      <div fxHide.xs></div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

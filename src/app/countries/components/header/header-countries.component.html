@@ -1,0 +1,55 @@
+<mat-toolbar>
+  <div class="logo" [routerLink]="['/countries']">
+    <img
+      alt="Countries"
+      rel="preload"
+      as="image"
+      width="140px"
+      height="28px"
+      src="assets/countries/img/logo.png"
+    />
+  </div>
+  <form class="search-bar">
+    <input
+      type="text"
+      name="search"
+      autocomplete="off"
+      class="search"
+      placeholder="Search country..."
+    />
+    <mat-icon>search</mat-icon>
+  </form>
+
+  <div class="side-right">
+    <div class="search-icon" (click)="onToggle()">
+      <mat-icon>search</mat-icon>
+    </div>
+    <img
+      alt="Countries Timer"
+      rel="preload"
+      as="image"
+      height="38px"
+      width="38px"
+      src="assets/countries/img/icon-timer.png"
+    />
+
+    <div class="quiz">
+      <div class="type-quiz">
+        <span
+          ><a
+            [routerLink]="['/countries/quiz/world']"
+            routerLinkActive="link-active"
+            >World</a
+          ></span
+        >
+        <span
+          ><a
+            [routerLink]="['/routePath']"
+            routerLinkActive="router-link-active"
+            >Continent
+          </a></span
+        >
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

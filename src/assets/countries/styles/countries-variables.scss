@@ -1,0 +1,10 @@
+$bg-dark: transparentize(#1a1f47, 0.3);
+$countries-accent: #eaff00;
+$countries-gray: #303030;
+$countries-text: #8da2c0;
+$countries-subtitle: #33b1ff;
+@font-face {
+  font-family: "countries";
+  src: url("./../fonts/OpenSans-Bold.ttf");
+  font-display: swap;
+}

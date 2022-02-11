@@ -1,0 +1,89 @@
+<div class="container-main">
+  <div class="container-quiz">
+    <div class="panel">
+      <div *ngIf="loadingQuiz$ | async" style="color: white">
+        <app-loader [title]="'Quiz'"></app-loader>
+      </div>
+      <mat-accordion *ngFor="let item of quiz; let i = index">
+        <mat-expansion-panel
+          [expanded]="stepQuiz === i + 1 && quizTime"
+          (opened)="setStepQuiz(i + 1)"
+          [disabled]="stepQuiz === 0 || !quizTime"
+        >
+          <mat-expansion-panel-header
+            [ngStyle]="{
+              'background-color': (changeColor$ | async) ? 'rgb(43, 0, 0)' : ''
+            }"
+          >
+            <mat-panel-title>
+              <button
+                mat-mini-fab
+                aria-label="Number Quiz Step"
+                class="btn-number"
+                [ngClass]="{ active: stepQuiz === i + 1 }"
+              >
+                <span> {{ i + 1 }}</span>
+              </button>
+              <img
+                [alt]="item.question"
+                rel="preload"
+                as="image"
+                class="country-flag"
+                width="40px"
+                height="20px"
+                [src]="item.flags"
+                [ngStyle]="{ opacity: stepQuiz === i + 1 ? '1' : 0.3 }"
+              />
+            </mat-panel-title>
+
+            <mat-panel-description>
+              <div class="panel-description">
+                <mat-icon
+                  [ngStyle]="{ opacity: stepQuiz === i + 1 ? '1' : 0.3 }"
+                  >question_answer</mat-icon
+                >
+                <span
+                  class="panel-description-right"
+                  [ngClass]="{ active: stepQuiz === i + 1 }"
+                  >{{ optionsCountries.value }}</span
+                >
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!--   Quiz Content -->
+          <div class="item-quiz">
+            <div class="question">
+              <h2>What is the capital of {{ item.question }}?</h2>
+            </div>
+            <div class="options">
+              <mat-button-toggle-group
+                #optionsCountries="matButtonToggleGroup"
+                aria-label="Options Countries"
+                class="options-group"
+              >
+                <mat-button-toggle
+                  *ngFor="let answers of item.options; let iOptions = index"
+                  [value]="answers.capital"
+                  (click)="
+                    onOptionAnswer(
+                      item.options[iOptions],
+                      item,
+                      item.idItemQuiz
+                    )
+                  "
+                >
+                  <span>{{ answers.capital }}</span>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+          </div>
+          <mat-action-row>
+            <button class="skip" (click)="skip()" mat-button>
+              <mat-icon>skip_next</mat-icon>Skip
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

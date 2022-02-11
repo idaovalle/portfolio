@@ -1,0 +1,22 @@
+<div fxLayout="column">
+  <div class="search"><app-characters-search></app-characters-search></div>
+  <div
+    fxLayout="row wrap"
+    fxFlex="100%"
+    fxLayout.lt-sm="column"
+    fxLayoutAlign="space-evenly center"
+    infinite-scroll
+    (scrolled)="onScrolled()"
+  >
+    <app-characters-card
+      *ngFor="let character of characters$ | async"
+      [character]="character"
+    >
+    </app-characters-card>
+  </div>
+  <div class="arrow" *ngIf="showArrow">
+    <button mat-fab (click)="onScrollTop()">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+  </div>
+</div>

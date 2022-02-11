@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@characters-services/*":["src/app/rickandmorty/shared/services/*"], 
+      "@characters-interfaces/*":["src/app/rickandmorty/shared/interfaces/*"],
+      "@characters-shared/*":["src/app/rickandmorty/shared/*"],
+      "@countries-services/*":["src/app/countries/shared/services/*"],
+      "@countries-interfaces/*":["src/app/countries/shared/interfaces/*"], 
+      "@countries-quiz/*":["src/app/countries/pages/quiz/*"]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

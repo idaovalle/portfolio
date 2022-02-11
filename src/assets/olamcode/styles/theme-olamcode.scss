@@ -1,0 +1,21 @@
+@use "@angular/material" as mat;
+@include mat.core();
+@import "./palett-olamcode.scss";
+
+$olamCode-primary: mat.define-palette($my-palette-primary);
+$olamCode-accent: mat.define-palette($my-palette-accent);
+$olamCode-warn: mat.define-palette(mat.$red-palette);
+$olamCode-countries: mat.define-palette($my-palette-countries);
+
+$olamCode-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $olamCode-primary,
+      accent: $olamCode-accent,
+      warn: $olamCode-warn,
+      countries: $olamCode-countries,
+    ),
+  )
+);
+
+@include mat.all-component-themes($olamCode-theme);

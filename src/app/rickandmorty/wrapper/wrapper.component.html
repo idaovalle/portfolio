@@ -1,0 +1,74 @@
+<app-spinner></app-spinner>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z15">
+    <app-characters-sidenav (toogle)="onToogle()"></app-characters-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!--  Vertical Menu -->
+    <div class="vertical-menu" mat-elevation-z8 *ngIf="iconMenu" fxLayout="row">
+      <img
+        alt="Rick and Morty's title"
+        class="title"
+        width="150px"
+        height="80px"
+        src="assets/rickandmorty/img/vertical-title-logo.png"
+      />
+      <div class="mini-icon">
+        <button
+          title="Rick and Morty synopsis"
+          aria-label="Rick and Morty synopsis"
+          [routerLink]="['/rickandmorty/home']"
+          routerLinkActive="link-active"
+          mat-mini-fab
+          color="primary"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+        <button
+          title="Characters List"
+          aria-label="Characters list"
+          [routerLink]="['/rickandmorty/list']"
+          routerLinkActive="link-active"
+          mat-mini-fab
+          color="primary"
+          (click)="updateChars()"
+        >
+          <mat-icon>collections</mat-icon>
+        </button>
+        <button
+          title="Favorites Characters"
+          aria-label="Favorites Characters"
+          mat-mini-fab
+          color="primary"
+          [routerLink]="['/rickandmorty/favorites']"
+          routerLinkActive="link-active"
+        >
+          <mat-icon [matBadge]="numberFav" matBadgeColor="warn"
+            >favorite</mat-icon
+          >
+        </button>
+
+        <button
+          title="Open Menu"
+          (click)="offToggle()"
+          aria-label="Open Menu"
+          mat-mini-fab
+          color="primary"
+        >
+          <mat-icon>menu_open</mat-icon>
+        </button>
+      </div>
+      <img
+        alt="Rick and Morty's profile"
+        class="avatar"
+        width="80px"
+        height="70px;"
+        src="assets/rickandmorty/img/rmperfil.png"
+      />
+    </div>
+    <!-- End of Vertical Menu -->
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

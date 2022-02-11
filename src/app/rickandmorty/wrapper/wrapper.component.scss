@@ -1,0 +1,90 @@
+@import "olamcode-variables";
+@import "characters-variables";
+
+mat-sidenav-container {
+  min-height: calc(95vh - #{$height-header});
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    $characters-colorbg1 0%,
+    $characters-colorbg2 20%,
+    $characters-colorbg3 40%,
+    $characters-colorbg4 60%,
+    $characters-colorbg5 80%,
+    $characters-colorbg6 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient 50s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+  mat-sidenav {
+    overflow-x: hidden;
+    position: fixed;
+    border-radius: 255px 100px 225px 15px/15px 225px 15px 255px;
+    border-bottom-right-radius: 55pt 825pt;
+    border-top: solid 5px $morty;
+    border-bottom: solid 5px $morty;
+    border: $morty;
+    margin: 7em 1.5em 1.5em 1.5em;
+    width: $width-sidenavar;
+    height: 33em;
+    background-color: $characters-bg-dark;
+  }
+  mat-sidenav-content {
+    .vertical-menu {
+      position: fixed;
+      margin-top: 3vh;
+      width: 100px;
+      border-radius: 255px 100px 225px 15px/15px 225px 15px 255px;
+      border-bottom-right-radius: 55pt 25pt;
+      border-top: solid 5px $morty;
+      border-bottom: solid 5px $morty;
+      background-color: $bg-vertical-menu;
+
+      .avatar {
+        margin-left: -10px;
+        margin-bottom: -0.5em;
+        width: 80px;
+      }
+      .title {
+        margin-top: 1em;
+        width: 70px;
+        margin-left: 1rem;
+      }
+
+      .mini-icon {
+        margin-top: 1px;
+        margin-left: 7px;
+        button {
+          margin: 1em 0.5em 1.3em 0.5em;
+        }
+      }
+      .link-active {
+        box-shadow: 0 0 30px $morty;
+      }
+    }
+    .router-outlet {
+      margin-top: 1em;
+      margin-left: 3em;
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  mat-sidenav-container {
+    mat-sidenav-content {
+      .router-outlet {
+        margin-left: 6em;
+      }
+    }
+  }
+}
